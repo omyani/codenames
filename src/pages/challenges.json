@@ -1,0 +1,47 @@
+[
+    {
+        "definition": "Ready?",
+        "right": [],
+        "wrong": []
+    },
+    {
+        "definition": "חוצבים",
+        "right": ["הרטום", "קרית המדע", "מומו הלוי", "המבריא"],
+        "wrong": ["הקבלן", "המחשב", "Fusion", "הרופא", "נחל צופים"]
+    },
+    {
+        "definition": "קומפוננטות",
+        "right": ["RMF", "Search", "PAN", "DMP", "BEF"],
+        "wrong": ["NFS", "ETH", "EBITA", "INTC"]
+    },
+    {
+        "definition": "ישיבות",
+        "right": ["5124", "Solitaire", "7047", "2121"],
+        "wrong": ["5085", "Fifa", "5181", "Erez", "90210"]
+    },
+    {
+        "definition": "Stream",
+        "right": ["Ice Age", "I, Robot", "Monsters Inc", "Bacon Clubhouse", "Clearcase"],
+        "wrong": ["Walking Dead", "Meistgesehene", "MPD", "סודה"]
+    },
+    {
+        "definition": "Site",
+        "right": ["Chandlers Ford", "Toronto", "Issy les Moulineaux", "Lawrencville"],
+        "wrong": ["Munich", "Santa Clara", "Cape Canaveral", "Mobileye", "Bangkok"]
+    },
+    {
+        "definition": "מונית",
+        "right": ["הצומת", "ירון"],
+        "wrong": ["פנוי באלנבי", "גט", "Yellow", "הכסף"]
+    },
+    {
+        "definition": "צהריים",
+        "right": ["שולץ", "ביליביס", "בריסטה", "השמן"],
+        "wrong": ["ארומה", "ליד המחשב", "בורגרס בר", "ניו דלי", "המכונה בקומה 6"]
+    },
+    {
+        "definition": "Thanks",
+        "right": [],
+        "wrong": []
+    }
+]
