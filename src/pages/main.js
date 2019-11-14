@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { Fireworks } from 'fireworks/lib/react';
 
 const challenges = require('./challenges');
 
@@ -30,8 +31,10 @@ const useStyles = makeStyles(theme => ({
         marginBottom: 12,
     },
     scoreBox: {
+        ...theme.typography.button,
         backgroundColor: 'white',
-        opacity: 0.7
+        opacity: 0.7,
+        fontSize: 40
     },
     button: {
         margin: theme.spacing(1),
@@ -70,16 +73,35 @@ function Challenge(props) {
     function Word(props) {
 
         const [clicked, setClicked] = React.useState(false);
+        const [fire, setFire] = React.useState(false);
+        let fxProps = {
+            count: 3,
+            interval: 200,
+            colors: ['#cc3333', '#4CAF50', '#81C784'],
+            calc: (props, i) => ({
+                ...props,
+                x: (i + 1) * (window.innerWidth / 3) - (i + 1) * 100,
+                y: 200 + Math.random() * 100 - 50 + (i === 2 ? -80 : 0)
+            })
+        };
+
+        function shutdownFire(){
+            setFire(false);
+        }
 
         function onClick() {
             setClicked(true);
             if (props.word.right) {
+                setFire(true);
+                setInterval(shutdownFire,2000);
                 //props.decToGo();
             }
             console.log(`clicked! ${props.word.word}`);
         }
 
         return (
+            <div>
+                {fire ? <Fireworks {...fxProps} />: null}
             <Grid item >
             <Card className={classes.card} raised style={{ backgroundColor: clicked ? clickedCardColor[props.word.right] : 'WhiteSmoke'}}>
             <CardActionArea 
@@ -93,6 +115,7 @@ function Challenge(props) {
                 </CardActionArea>
             </Card>
             </Grid>
+            </div>
         );
     }    
 
@@ -126,14 +149,14 @@ function Challenge(props) {
             <Grid container direction='column'>
                 <Grid container/>
                 <Grid container justify="center">
-                    <Grid item className={classes.scoreBox} spacing={2} xs={6}>
-                    <Typography component="h2" variant="h2" >
+                    <Grid item  spacing={2} xs={6}>
+                    <Typography className={classes.scoreBox} >
                         {props.definition}
                         </Typography>
                     </Grid>
-                    <Grid item className={classes.scoreBox}>
-                    <Typography component="h2" variant="h2" >
-                        {rightCount}
+                    <Grid item >
+                    <Typography className={classes.scoreBox} >
+                        {rightCount || ''}
                         </Typography>
                     </Grid>
                 </Grid>
